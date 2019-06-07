@@ -1,6 +1,6 @@
 {
   "name": "geojson-bounding-box",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Efficiently computes a GeoJSON's bounding box.",
   "main": "geojson-bounding-box.js",
   "module": "index.js",
