@@ -1,0 +1,25 @@
+{
+  "name": "geojson-bounding-box",
+  "version": "0.0.0",
+  "description": "Efficiently computes a GeoJSON's bounding box.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpmcmlxxvi/geojson-bounding-box.git"
+  },
+  "keywords": [
+    "GeoJSON",
+    "bounding",
+    "box",
+    "bbox"
+  ],
+  "author": "Daniel Pulido <dpmcmlxxvi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dpmcmlxxvi/geojson-bounding-box/issues"
+  },
+  "homepage": "https://github.com/dpmcmlxxvi/geojson-bounding-box#readme"
+}
