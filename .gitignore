@@ -1,0 +1,5 @@
+/.nyc_output/
+/coverage/
+/node_modules/
+geojson-bounding-box.js
+geojson-bounding-box.min.js
