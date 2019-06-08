@@ -1,20 +1,32 @@
 /**
- * @description Generator that yields each GeoJSON coordinate.
+ * @description Create input GeoJSON bounding box.
  * @param {GeoJSON} geojson Input GeoJSON.
- * @return {Array} GeoJSON 2D or 3D coordinate.
+ * @return {Array} GeoJSON bounding box.
  */
-export default function(geojson) {
+module.exports = function(geojson) {
   const bbox = [
     Number.POSITIVE_INFINITY,
     Number.POSITIVE_INFINITY,
+    Number.POSITIVE_INFINITY,
+    Number.NEGATIVE_INFINITY,
     Number.NEGATIVE_INFINITY,
     Number.NEGATIVE_INFINITY,
   ];
+
+  // Update bbox with each coordinate
+  let dimensions = 2;
   for (const coordinate of coordEach(geojson)) {
-    bbox[0] = Math.min(bbox[0], coordinate[0]);
-    bbox[1] = Math.min(bbox[1], coordinate[1]);
-    bbox[2] = Math.max(bbox[2], coordinate[0]);
-    bbox[3] = Math.max(bbox[3], coordinate[1]);
+    dimensions = Math.max(dimensions, coordinate.length);
+    for (let i = 0; i < coordinate.length; ++i) {
+      const j = 3 + i;
+      bbox[i] = Math.min(bbox[i], coordinate[i]);
+      bbox[j] = Math.max(bbox[j], coordinate[i]);
+    }
+  }
+
+  // Remove 3rd dimension if not present in data.
+  if (dimensions !== 3) {
+    return [bbox[0], bbox[1], bbox[3], bbox[4]];
   }
   return bbox;
 };
